@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تمرین‌های برنامه‌نویسی C# در Unity</title>
+
+    <style>
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            line-height: 2;
+            background: #f5f5f5;
+            color: #222;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #0066cc;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .exercise {
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fafafa;
+            border: 1px solid #ddd;
+        }
+
+        ul {
+            padding-right: 25px;
+        }
+
+        .code {
+            background: #222;
+            color: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            direction: ltr;
+            text-align: left;
+            font-family: Consolas, monospace;
+        }
+
+        .level {
+            background: #e8f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+تمرین‌های برنامه‌نویسی C# در Unity
+</h1>
+
+<div class="level">
+<b>سطح تمرین:</b> متوسط<br>
+<b>مباحث مورد استفاده:</b>
+Variables، If/Else، Loopها، Switch Case، Foreach، Array،
+Class، Object، Constructor، Destructor، Encapsulation
+</div>
+
+
+<div class="exercise">
+
+<h2>تمرین ۱: بازی نبرد قهرمان و هیولا ⚔️</h2>
+
+<p>
+یک بازی مبارزه‌ای ساده طراحی کنید که در آن بازیکن با یک هیولا مبارزه می‌کند.
+</p>
+
+<h3>کلاس Player</h3>
+
+<ul>
+<li>Name : نام بازیکن</li>
+<li>Health : میزان سلامتی</li>
+<li>AttackPower : قدرت حمله</li>
+<li>PotionCount : تعداد معجون‌ها</li>
+</ul>
+
+
+<h3>کلاس Enemy</h3>
+
+<ul>
+<li>Name</li>
+<li>Health</li>
+<li>AttackPower</li>
+</ul>
+
+
+<p>
+مقدار Health باید به صورت Private تعریف شود و با استفاده از
+Encapsulation کنترل شود.
+</p>
+
+
+<p>
+در شروع بازی با استفاده از Constructor یک Player و یک Enemy ایجاد کنید.
+</p>
+
+
+<h3>منوی بازی:</h3>
+
+<div class="code">
+
+1. Attack<br>
+2. Use Potion<br>
+3. Show Status<br>
+4. Escape
+
+</div>
+
+
+<ul>
+<li>
+برای مدیریت انتخاب کاربر از Switch Case استفاده کنید.
+</li>
+
+<li>
+در هنگام حمله، از Health دشمن کم شود و اگر دشمن زنده بود به بازیکن حمله کند.
+</li>
+
+<li>
+بازی باید با While یا Do While تا پایان مبارزه ادامه پیدا کند.
+</li>
+</ul>
+
+
+<h3>چالش اضافه:</h3>
+
+<p>
+یک Array از چند دشمن بسازید و با استفاده از Foreach نام دشمن‌ها را نمایش دهید.
+</p>
+
+
+</div>
+
+
+
+<div class="exercise">
+
+<h2>تمرین ۲: بازی شکار گنج 💎</h2>
+
+
+<p>
+یک بازی طراحی کنید که بازیکن در چند اتاق حرکت کرده و گنج پیدا می‌کند.
+</p>
+
+
+<h3>کلاس Room</h3>
+
+<ul>
+<li>Name</li>
+<li>HasTreasure</li>
+<li>IsDangerous</li>
+<li>TreasureValue</li>
+</ul>
+
+
+<h3>کلاس Player</h3>
+
+<ul>
+<li>Name</li>
+<li>Health</li>
+<li>Score</li>
+</ul>
+
+
+<p>
+Health و Score باید با Encapsulation محافظت شوند.
+</p>
+
+
+<p>
+یک Array شامل ۶ اتاق ایجاد کنید.
+</p>
+
+
+<h3>منوی بازی:</h3>
+
+<div class="code">
+
+1. Enter Room<br>
+2. Skip Room<br>
+3. Show Player Status<br>
+4. Quit Game
+
+</div>
+
+
+<ul>
+
+<li>
+اگر اتاق دارای گنج بود، امتیاز بازیکن افزایش پیدا کند.
+</li>
+
+<li>
+اگر اتاق خطرناک بود، Health بازیکن کاهش پیدا کند.
+</li>
+
+<li>
+برای عبور از اتاق‌ها از حلقه For استفاده کنید.
+</li>
+
+</ul>
+
+
+<h3>چالش اضافه:</h3>
+
+<p>
+با Foreach مشخصات تمام اتاق‌ها و تعداد گنج‌های پیدا شده را نمایش دهید.
+</p>
+
+
+</div>
+
+
+
+
+<div class="exercise">
+
+<h2>تمرین ۳: مسابقات Gladiator 🏆</h2>
+
+
+<p>
+یک سیستم مسابقات مبارزه‌ای طراحی کنید.
+</p>
+
+
+<h3>کلاس Fighter</h3>
+
+<ul>
+<li>Name</li>
+<li>Health</li>
+<li>Attack</li>
+<li>Defense</li>
+<li>Wins</li>
+</ul>
+
+
+<p>
+Health و Wins باید Private باشند و فقط از طریق متدهای کلاس تغییر کنند.
+</p>
+
+
+<h3>متدهای پیشنهادی:</h3>
+
+<div class="code">
+
+TakeDamage()<br>
+AttackEnemy()<br>
+AddWin()<br>
+ShowInfo()
+
+</div>
+
+
+<p>
+یک Array شامل ۴ مبارز ایجاد کنید.
+</p>
+
+
+<p>
+قبل از شروع مسابقات، اطلاعات مبارزان را با Foreach نمایش دهید.
+</p>
+
+
+<p>
+مبارزه باید به صورت نوبتی انجام شود و تا زمانی که Health یکی از مبارزان صفر نشده، ادامه پیدا کند.
+</p>
+
+
+<h3>محاسبه Damage:</h3>
+
+<div class="code">
+
+Damage = Attack - Defense
+
+</div>
+
+
+<h3>منوی اصلی:</h3>
+
+<div class="code">
+
+1. Start Tournament<br>
+2. Show Fighters<br>
+3. Show Results<br>
+4. Exit
+
+</div>
+
+
+<p>
+منوی اصلی باید با Switch Case و Do While پیاده‌سازی شود.
+</p>
+
+
+<h3>چالش اضافه:</h3>
+
+<p>
+برای کلاس Fighter یک Destructor تعریف کنید و درباره زمان اجرای آن در C# توضیح دهید.
+</p>
+
+
+</div>
+
+
+
+<div class="note">
+
+<h3>معیار ارزیابی</h3>
+
+<p>
+در پیاده‌سازی تمرین‌ها باید از تمام مباحث تدریس شده استفاده شود:
+</p>
+
+<ul>
+<li>Variables</li>
+<li>If / Else</li>
+<li>For / While / Do While</li>
+<li>Switch Case</li>
+<li>Foreach</li>
+<li>Array</li>
+<li>Class و Object</li>
+<li>Constructor و Destructor</li>
+<li>Encapsulation</li>
+</ul>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
