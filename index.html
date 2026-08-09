@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تمرین‌های برنامه‌نویسی C# در Unity</title>
+
+    <style>
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            line-height: 2;
+            background: #f5f5f5;
+            color: #222;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            color: #0066cc;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .exercise {
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #fafafa;
+            border: 1px solid #ddd;
+        }
+
+        ul {
+            padding-right: 25px;
+        }
+
+        .code {
+            background: #222;
+            color: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            direction: ltr;
+            text-align: left;
+            font-family: Consolas, monospace;
+        }
+
+        .level {
+            background: #e8f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+تمرین‌های برنامه‌نویسی C#
+</h1>
+
+<div class="level">
+<b>سطح تمرین:</b> متوسط<br>
+<b>مباحث مورد استفاده:</b>
+Variables، If/Else، Loopها، Switch Case، Foreach، Array،
+Class، Object، Constructor، Destructor، Encapsulation
+</div>
+
+
+<div class="exercise">
+
+<h2>تمرین ۱: بازی نبرد قهرمان و هیولا ⚔️</h2>
+
+<h3>سناریو</h3>
+<ul>
+<li>بازیکنی با نام <b>سورنا</b>، سلامتی 100، قدرت حمله 25 و 2 معجون ایجاد شود.</li>
+<li>دشمنی با نام <b>Orc</b>، سلامتی 80 و قدرت حمله 15 ایجاد شود.</li>
+<li>هر بار انتخاب Attack، دقیقاً 25 واحد از Health دشمن کم کند.</li>
+<li>اگر دشمن بعد از حمله هنوز زنده بود، دقیقاً 15 واحد از Health بازیکن کم کند.</li>
+<li>هر Potion مقدار 30 واحد Health بازیکن را بازیابی کند و تعداد PotionCount یک واحد کم شود. Health نباید از 100 بیشتر شود.</li>
+<li>بازی وقتی تمام شود که Health بازیکن یا دشمن به صفر برسد، یا کاربر Escape را انتخاب کند.</li>
+</ul>
+
+<h3>خروجی مورد انتظار</h3>
+<p>
+برنامه باید منوی مشخص‌شده، وضعیت Health دو طرف بعد از هر عملیات، تعداد معجون باقی‌مانده و در پایان پیام Win / Lose / Escape را نمایش دهد.
+</p>
+
+<h3>کلاس Player</h3>
+<h4>فیلد های کلاس</h4>
+<ul>
+<li>Name : نام بازیکن</li>
+<li>Health : میزان سلامتی</li>
+<li>AttackPower : قدرت حمله</li>
+<li>PotionCount : تعداد معجون‌ها</li>
+</ul>
+
+
+<h3>کلاس Enemy</h3>
+<h4>فیلد های کلاس</h4>
+<ul>
+<li>Name</li>
+<li>Health</li>
+<li>AttackPower</li>
+</ul>
+
+
+<p>
+مقدار Health باید به صورت Private تعریف شود و با استفاده از
+Encapsulation کنترل شود.
+</p>
+
+
+<p>
+در شروع بازی با استفاده از Constructor یک Player و یک Enemy ایجاد کنید.
+</p>
+
+
+<h3>منوی بازی:</h3>
+
+<div class="code">
+
+1. Attack<br>
+2. Use Potion<br>
+3. Show Status<br>
+4. Escape
+
+</div>
+
+
+<ul>
+<li>
+برای مدیریت انتخاب کاربر از Switch Case استفاده کنید.
+</li>
+
+<li>
+در هنگام حمله، از Health دشمن کم شود و اگر دشمن زنده بود به بازیکن حمله کند.
+</li>
+
+<li>
+بازی باید با While یا Do While تا پایان مبارزه ادامه پیدا کند.
+</li>
+</ul>
+
+
+<h3>چالش اضافه:</h3>
+
+<p>
+یک Array از چند دشمن بسازید و با استفاده از Foreach نام دشمن‌ها را نمایش دهید.
+</p>
+
+
+</div>
+
+
+
+<div class="exercise">
+
+<h2>تمرین ۲: بازی شکار گنج 💎</h2>
+
+<h3>سناریو</h3>
+<ul>
+<li>بازیکنی با نام <b>Sara</b>، Health برابر 100 و Score برابر 0 ایجاد شود.</li>
+<li>شش اتاق دقیقاً با اطلاعات زیر در Array قرار گیرند:</li>
+<li>Room 1: گنج دارد، خطرناک نیست، ارزش گنج 20.</li>
+<li>Room 2: گنج ندارد و خطرناک است.</li>
+<li>Room 3: گنج دارد، خطرناک است و ارزش گنج آن 40 است.</li>
+<li>Room 4: گنج ندارد، خطرناک نیست.</li>
+<li>Room 5: گنج دارد، خطرناک نیست، ارزش گنج 30.</li>
+<li>Room 6: گنج ندارد و خطرناک است.</li>
+<li>اگر کاربر Enter Room را انتخاب کند، اثر همان اتاق روی Score و Health اعمال شود. ورود به هر اتاق خطرناک دقیقاً 20 واحد از Health کم می‌کند.</li>
+<li>اگر Skip Room انتخاب شود، بدون تغییر امتیاز یا سلامتی به اتاق بعدی بروید.</li>
+<li>بازی پس از بررسی هر 6 اتاق، صفر شدن Health، یا انتخاب Quit Game پایان یابد.</li>
+</ul>
+
+<h3>خروجی مورد انتظار</h3>
+<p>
+برای هر اتاق نام اتاق، نتیجه ورود یا رد شدن، Health فعلی و Score فعلی نمایش داده شود. در پایان نیز تعداد گنج‌های پیدا شده و امتیاز نهایی چاپ شود.
+</p>
+
+
+<h3>کلاس Room</h3>
+<h4>فیلد های کلاس</h4>
+<ul>
+<li>Name</li>
+<li>HasTreasure</li>
+<li>IsDangerous</li>
+<li>TreasureValue</li>
+</ul>
+
+
+<h3>کلاس Player</h3>
+<h4>فیلد های کلاس</h4>
+<ul>
+<li>Name</li>
+<li>Health</li>
+<li>Score</li>
+</ul>
+
+
+<p>
+Health و Score باید با Encapsulation محافظت شوند.
+</p>
+
+
+<p>
+یک Array شامل ۶ اتاق ایجاد کنید.
+</p>
+
+
+<h3>منوی بازی:</h3>
+
+<div class="code">
+
+1. Enter Room<br>
+2. Skip Room<br>
+3. Show Player Status<br>
+4. Quit Game
+
+</div>
+
+
+<ul>
+
+<li>
+اگر اتاق دارای گنج بود، امتیاز بازیکن افزایش پیدا کند.
+</li>
+
+<li>
+اگر اتاق خطرناک بود، Health بازیکن کاهش پیدا کند.
+</li>
+
+<li>
+برای عبور از اتاق‌ها از حلقه For استفاده کنید.
+</li>
+
+</ul>
+
+
+<h3>چالش اضافه:</h3>
+
+<p>
+با Foreach مشخصات تمام اتاق‌ها و تعداد گنج‌های پیدا شده را نمایش دهید.
+</p>
+
+
+</div>
+
+
+
+
+<div class="exercise">
+
+<h2>تمرین ۳: مسابقات Gladiator 🏆</h2>
+
+<h3>سناریو</h3>
+<ul>
+<li>چهار Fighter در Array ساخته شوند:</li>
+<li>مسابقه اول: بین دو بازیکن اول.</li>
+<li>مسابقه دوم: بین دو بازیکن آخر.</li>
+<li>فینال: برنده مسابقه اول در برابر برنده مسابقه دوم.</li>
+<li>در هر نوبت Fighter اول حمله کند و اگر Fighter دوم زنده ماند، او پاسخ دهد.</li>
+<li>Damage هر ضربه برابر Attack مهاجم منهای Defense حریف باشد و اگر نتیجه کمتر از 1 شد، Damage برابر 1 در نظر گرفته شود.</li>
+<li>در شروع هر مبارزه، Health دو مبارز به مقدار اولیه همان Fighter برگردد.</li>
+<li>پس از پایان هر مبارزه، Wins برنده یک واحد افزایش یابد.</li>
+</ul>
+
+<h3>خروجی مورد انتظار</h3>
+<p>
+قبل از مسابقات مشخصات 4 مبارز، در طول هر مبارزه مقدار Damage و Health باقی‌مانده، بعد از هر مسابقه نام برنده و در پایان نام قهرمان و تعداد Wins همه مبارزان نمایش داده شود.
+</p>
+
+
+<h3>کلاس Fighter</h3>
+<h4>فیلد های کلاس</h4>
+<ul>
+<li>Name</li>
+<li>Health</li>
+<li>Attack</li>
+<li>Defense</li>
+<li>Wins</li>
+</ul>
+
+
+<p>
+Health و Wins باید Private باشند و فقط از طریق متدهای کلاس تغییر کنند.
+</p>
+
+
+<h3>متدهای پیشنهادی:</h3>
+
+<div class="code">
+
+TakeDamage()<br>
+AttackEnemy()<br>
+AddWin()<br>
+ShowInfo()
+
+</div>
+
+
+<p>
+یک Array شامل ۴ مبارز ایجاد کنید.
+</p>
+
+
+<p>
+قبل از شروع مسابقات، اطلاعات مبارزان را با Foreach نمایش دهید.
+</p>
+
+
+<p>
+مبارزه باید به صورت نوبتی انجام شود و تا زمانی که Health یکی از مبارزان صفر نشده، ادامه پیدا کند.
+</p>
+
+
+<h3>محاسبه Damage:</h3>
+
+<div class="code">
+
+Damage = Attack - Defense
+
+</div>
+
+
+<h3>منوی اصلی:</h3>
+
+<div class="code">
+
+1. Start Tournament<br>
+2. Show Fighters<br>
+3. Show Results<br>
+4. Exit
+
+</div>
+
+
+<p>
+منوی اصلی باید با Switch Case و Do While پیاده‌سازی شود.
+</p>
+
+</div>
+</body>
+</html>
